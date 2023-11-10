@@ -1,6 +1,9 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom';
 import quiz from './Quiz';
+import MCQ from './MCQ';
+import TrueFalse from './TrueFalse';
+import SingleWord from './SingleWord';
 import '../styles/Main.css'
 
 function Main() {
@@ -12,14 +15,25 @@ function Main() {
     <div className='container'>
         <h1 className='title text-light'>Quiz Application</h1>
 
-        <ol>
-            <li>You will be asked 10 questions one after another.</li>
-            <li>10 points is awarded for the correct answer.</li>
-            <li>Each question has three options. You can choose only one options.</li>
-            <li>You can review and change answers before the quiz finish.</li>
-            <li>The result will be declared at the end of the quiz.</li>
-        </ol>
+        <div className='box'>
+            <Link to={'MCQ'} >
+            <div class="card">
+            <img src="https://mcqquestions.net/static/images/q-%26-a.webp" alt="Avatar" style={{width:'100%'}}/>
+            </div>
+            </Link>
+            <Link to={'TrueFalse'} >
+            <div class="card">
+            <img src="https://mcqquestions.net/static/images/q-%26-a.webp" alt="Avatar" style={{width:'100%'}}/>
+            </div>
+            </Link>
+            <Link to={'SingleWord'} >
+            <div class="card">
+            <img src="https://mcqquestions.net/static/images/q-%26-a.webp" alt="Avatar" style={{width:'100%'}}/>
+            </div>
+            </Link>
+        </div>
 
+        
         <form id="form">
             <input ref={inputRef} className="userid" type="text" placeholder='Username*' />
         </form>

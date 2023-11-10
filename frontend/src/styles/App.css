@@ -36,10 +36,33 @@ body, html{
 	color: var(--light-color)
 }
 
+.container2 {
+  padding: 3em;
+}
+
+.container2 .topics{
+  display: flex;
+  height: 42vh;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.container2 h2{
+  color: white;
+}
+
+.container2 .topic_of_quiz{
+  color: var(--light-color);
+  border: 3px solid var(--primary-color);
+  padding: .3em .2em;
+  border-radius: 4px;
+}
+
 .container ul{
-  list-style: none;
+  list-style:circle;
   margin: 0;
   padding: 0;
+  color: white;
 	overflow: auto;
 }
 

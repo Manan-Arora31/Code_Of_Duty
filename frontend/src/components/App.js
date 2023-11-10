@@ -9,6 +9,10 @@ import {
 import Main from './Main';
 import Quiz from './Quiz';
 import Result from './Result';
+import MCQ from './MCQ';
+import TrueFalse from './TrueFalse';
+import SingleWord from './SingleWord';
+import Questions from './Questions';
 
 const router=createBrowserRouter([
   {
@@ -23,6 +27,18 @@ const router=createBrowserRouter([
     path: '/result' ,
     element: <Result/>
   },
+  {
+    path: '/MCQ' ,
+    element: <MCQ/>
+  },
+  {
+    path: '/TrueFalse' ,
+    element: <TrueFalse/>
+  },
+  {
+    path: '/SingleWord' ,
+    element: <SingleWord/>
+  }
 ])
 
 function App() {
