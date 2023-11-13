@@ -10,7 +10,7 @@ export default [
     },
     {
         id:2,
-        question: "JavaScript is an ______ language",
+        question: "JavaScript is an ______ OP language",
         options: [
             'Object-Oriented',
             'Object-Based',
@@ -19,7 +19,7 @@ export default [
     },
     {
         id:3,
-        question: "JavaScript is an ______ language",
+        question: "JavaScript is an ______ MAHA OP language",
         options: [
             'Object-Oriented',
             'Object-Based',
@@ -45,3 +45,5 @@ export default [
         ],
     },
 ]
+
+export const answers = [0,1,2,1,0];
