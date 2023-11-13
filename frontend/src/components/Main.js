@@ -5,11 +5,19 @@ import MCQ from './MCQ';
 import TrueFalse from './TrueFalse';
 import SingleWord from './SingleWord';
 import '../styles/Main.css'
+import { setUserId } from '../redux/result_reducer';
+import { useDispatch } from 'react-redux';
 
 function Main() {
 
     const inputRef = useRef(null);
-    const startQuiz=0;
+    const dispatch=useDispatch();
+    
+    function startQuiz() {
+        if(inputRef.current?.value){
+            dispatchEvent(setUserId(inputRef.current?.value));
+        }
+    }
 
   return (
     <div className='container'>

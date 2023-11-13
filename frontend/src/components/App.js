@@ -13,6 +13,7 @@ import MCQ from './MCQ';
 import TrueFalse from './TrueFalse';
 import SingleWord from './SingleWord';
 import Questions from './Questions';
+import { CheckUserExist } from '../helper/helper';
 
 const router=createBrowserRouter([
   {
@@ -21,15 +22,15 @@ const router=createBrowserRouter([
   },
   {
     path: '/quiz' ,
-    element: <Quiz/>
+    element:<Quiz/>
   },
   {
     path: '/result' ,
-    element: <Result/>
+    element:<Result/>
   },
   {
     path: '/MCQ' ,
-    element: <MCQ/>
+    element:<MCQ/>
   },
   {
     path: '/TrueFalse' ,
