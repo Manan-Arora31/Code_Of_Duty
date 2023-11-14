@@ -15,6 +15,11 @@ function Quiz() {
 
   const navigate = useNavigate();
 
+  const redirectToResultPage = ()=>{
+    alert('Time is up! Redirecting to the result page.');
+    navigate('/result');
+  }
+
   const [check,setChecked] = useState(undefined);
 
   const [quizTime, setQuizTime] = useState(30); 
@@ -55,11 +60,6 @@ function Quiz() {
   useEffect(() => {
     console.log(result);
   })
-
-  const redirectToResultPage = ()=>{
-    alert('Time is up! Redirecting to the result page.');
-    navigate('/result')
-  }
 
 function onNext(){
   console.log('On next click');
