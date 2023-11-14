@@ -1,10 +1,15 @@
 import styles from "./styles.module.css";
 
 const Main = () => {
+
+	const user = localStorage.getItem("token");
+
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
 	};
+
+	if(user) {
 
 	return (
 		<div className={styles.main_container}>
@@ -16,6 +21,7 @@ const Main = () => {
 			</nav>
 		</div>
 	);
+	}
 };
 
 export default Main;

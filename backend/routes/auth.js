@@ -1,10 +1,11 @@
-const router = require("express").Router();
-const { User } = require("../Models/user");
-const Token = require("../Models/token");
-const crypto = require("crypto");
-const sendEmail = require("../utils/sendEmail");
-const bcrypt = require("bcrypt");
-const Joi = require("joi");
+import express from 'express';
+const router = express.Router();
+import { User } from "../Models/user.js";
+import Token from "../Models/token.js";
+import crypto from "crypto";
+import sendEmail from "../utils/sendEmail.js";
+import bcrypt from "bcrypt";
+import Joi from "joi" ;
 
 router.post("/", async (req, res) => {
 	try {
@@ -54,4 +55,4 @@ const validate = (data) => {
 	return schema.validate(data);
 };
 
-module.exports = router;
+export default router;

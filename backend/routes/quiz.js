@@ -1,11 +1,11 @@
-const express=require('express');
+import express from 'express';
 const router=express.Router();
-const quizController=require('../controllers/quizControllers');
+import { getAllQuizzes, createQuiz } from '../controllers/quizControllers.js';
 
 
-router.get('/allQuizzes',quizController.getAllQuizzes);
+router.get('/allQuizzes',getAllQuizzes);
 //router.get('/createQuiz',quizController.createQuiz);
-router.post('/createQuiz', quizController.createQuiz);
+router.post('/createQuiz',createQuiz);
 
 
-module.exports=router;
+export default router

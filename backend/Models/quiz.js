@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+import mongoose from 'mongoose';
 
 const questioSchema=new mongoose.Schema({
     text:String,
@@ -12,4 +12,4 @@ const quizSchema=new mongoose.Schema({
     questions:[questioSchema],
 });
 
-module.exports=mongoose.model('Quiz',quizSchema);
+export default mongoose.model('Quiz',quizSchema);

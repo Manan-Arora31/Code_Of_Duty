@@ -3,8 +3,11 @@ import morgan from "morgan";
 import cors from "cors";
 import { config } from "dotenv";
 import router from "./router/route.js";
-import connect from "./database/conn.js";
+import connect from "./db/dbConnection.js";
 
+import quizRoutes from './routes/quiz.js';
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 
@@ -13,6 +16,10 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 config();
+
+app.use('/quiz',quizRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 const port = process.env.PORT;
 
@@ -28,6 +35,10 @@ app.get('/',(req,res) => {
     } catch (error){
         res.json(error);
     }
+});
+
+app.get('/message', (req, res) => {
+    res.json({ message: "Hello from server!" });
 });
 
 

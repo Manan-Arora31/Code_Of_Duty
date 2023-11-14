@@ -17,7 +17,7 @@ const Login = () => {
 			const url = "http://localhost:8000/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+			window.location = "/home";
 		} catch (error) {
 			if (
 				error.response &&

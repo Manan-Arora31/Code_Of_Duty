@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router,Route,Routes,Navigate } from 'react-router-dom';
 import AdminQuizCreation from './components/admin/AdminQuizCreation';
 import QuizList from './components/quiz/QuizList';
-import Main from "./components/Main";
+import Main from "./components/Main/index";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import EmailVerify from "./components/EmailVerify";

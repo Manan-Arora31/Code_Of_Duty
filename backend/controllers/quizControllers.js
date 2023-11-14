@@ -1,6 +1,6 @@
-const Quiz=require('../Models/quiz');
+import Quiz from '../Models/quiz.js';
 
-exports.getAllQuizzes=async(req,res)=>{
+const getAllQuizzes=async(req,res)=>{
  try{
     const quizzes=await Quiz.find();
     res.json(quizzes);
@@ -10,7 +10,7 @@ exports.getAllQuizzes=async(req,res)=>{
  }
 };
 
-exports.createQuiz=async(req,res)=>{
+const createQuiz=async(req,res)=>{
     const {title,category,questions}=req.body;
 
     try{
@@ -27,3 +27,5 @@ exports.createQuiz=async(req,res)=>{
     }
 
 }
+
+export { getAllQuizzes, createQuiz }
