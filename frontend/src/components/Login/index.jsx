@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const Login = () => {
+	const googleAuth = () => {
+		window.open(
+			`http://localhost:8000/auth/google/callback`,
+			"_self"
+		);
+	};
+
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 
@@ -56,6 +63,11 @@ const Login = () => {
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign In
+						</button>
+						<p className={styles.text}>or</p>
+						<button className={styles.google_btn} onClick={googleAuth}>
+							<img src="./images/google.png" alt="google icon" />
+							<span>Sign in with Google</span>
 						</button>
 					</form>
 				</div>

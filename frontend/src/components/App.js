@@ -23,6 +23,7 @@ import Mainman from "./Main/index.jsx";
 import Signup from "./Signup";
 import Login from "./Login";
 import EmailVerify from "./EmailVerify";
+import Home from "./Home"
 
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
@@ -81,10 +82,10 @@ const router=createBrowserRouter([
 		path:"/login",
     element:<Login />
   },
-  {
-	 path:"/",
-   element:<Navigate replace to="/login" />
-  },
+  // {
+	//  path:"/",
+  //  element:<Navigate replace to="/login" />
+  // },
   {
    path:"/users/:id/verify/:token",
     element:<EmailVerify />
