@@ -1,8 +1,9 @@
 // client/src/components/AdminDashboard.js
-
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import AdminNavbar from './AdminNavbar';
+import Layout from './Layout';
 const AdminDashboard = () => {
   const [adminData, setAdminData] = useState(null);
    
@@ -29,16 +30,21 @@ const AdminDashboard = () => {
   }, []);
 
   return (
+    <Layout>
     <div>
+    
       <h2>Welcome to Admin Dashboard</h2>
       {adminData && (
         <div>
           <p>Admin ID: {adminData.adminData._id}</p>
           <p>Username: {adminData.adminData.username}</p>
           {/* Add additional admin data as needed */}
+
+          
         </div>
       )}
     </div>
+    </Layout>
   );
 };
 

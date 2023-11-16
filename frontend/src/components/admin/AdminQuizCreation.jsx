@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import Layout from './Layout';
 const AdminQuizCreation = () => {
   const [quizDetails, setQuizDetails] = useState({
     title: "",
@@ -73,6 +73,7 @@ const AdminQuizCreation = () => {
   };
 
   return (
+    <Layout>
     <div>
       <h2>Create Quiz</h2>
       <form onSubmit={handleSubmit}>
@@ -134,7 +135,10 @@ const AdminQuizCreation = () => {
 
         <button type="submit">Create Quiz</button>
       </form>
+
+
     </div>
+    </Layout>
   );
 };
 
