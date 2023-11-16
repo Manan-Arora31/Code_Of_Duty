@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 			userId: user._id,
 			token: crypto.randomBytes(32).toString("hex"),
 		}).save();
-		const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+		const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`;
 		await sendEmail(user.email, "Verify Email", url);
 
 		res
@@ -39,20 +39,22 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.get("/:id/verify/:token/", async (req, res) => {
+router.get("/:id/verify/:token", async (req, res) => {
 	try {
 		const user = await User.findOne({ _id: req.params.id });
 		if (!user) return res.status(400).send({ message: "Invalid link" });
 
 		const token = await Token.findOne({
 			userId: user._id,
-			token: req.params.token,
+			token: req.params.token
 		});
 		if (!token) return res.status(400).send({ message: "Invalid link" });
-
-		await User.updateOne({ _id: user._id, verified: true });
-		await token.remove();
-
+		const updateInfo = await User.updateOne({
+            _id:user._id
+        },
+        {
+            $set:{verified:true}
+        });
 		res.status(200).send({ message: "Email verified successfully" });
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
