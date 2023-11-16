@@ -85,7 +85,7 @@ const Signup = () => {
 							className={styles.input}
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
-						{!error && msg && <div className={styles.success_msg}>{msg}</div>}
+						{msg=="An Email sent to your account please verify" && <div className={styles.success_msg}>{msg}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>
