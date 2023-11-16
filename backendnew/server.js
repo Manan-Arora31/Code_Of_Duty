@@ -9,6 +9,9 @@ import quizRoutes from './routes/quiz.js';
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 
+import adminRoutes from "./routes/admin.js";
+//import authMiddleware from "./middleware/authMiddleware.js";
+
 const app = express();
 
 //app middleware
@@ -20,6 +23,8 @@ config();
 app.use('/quiz',quizRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+//app.use('/api/admin',authMiddleware);
+app.use('/api/admin',adminRoutes);
 
 const port = process.env.PORT;
 

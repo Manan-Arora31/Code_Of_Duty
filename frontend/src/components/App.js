@@ -15,6 +15,9 @@ import SingleWord from './SingleWord';
 import Questions from './Questions';
 import { CheckUserExist } from '../helper/helper';
 import AdminQuizCreation from './admin/AdminQuizCreation';
+import Adminlogin from './admin/Adminlogin';
+import Adminregister from './admin/Adminregister';
+import AdminDashboard from './admin/AdminDashboard';
 import QuizList from './quiz/QuizList.jsx';
 import Mainman from "./Main/index.jsx";
 import Signup from "./Signup";
@@ -46,6 +49,18 @@ const router=createBrowserRouter([
   {
     path: '/SingleWord' ,
     element: <SingleWord/>
+  },
+  {
+    path:"/admin/register",
+    element:<Adminregister />
+  },
+  {
+    path:"/admin/login",
+    element:<Adminlogin />
+  },
+  {
+    path:"/admin/dashboard",
+    element:<AdminDashboard />
   },
   {
     path:"/admin/create-quiz",
