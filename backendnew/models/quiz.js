@@ -7,6 +7,7 @@ const questioSchema=new mongoose.Schema({
 });
 
 const quizSchema=new mongoose.Schema({
+    quizId:{type:String,unique:true},
     title:String,
     category:String,
     questions:[questioSchema],

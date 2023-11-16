@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 config();
 
-app.use('/quiz',quizRoutes);
+app.use('/api/quiz',quizRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 //app.use('/api/admin',authMiddleware);
