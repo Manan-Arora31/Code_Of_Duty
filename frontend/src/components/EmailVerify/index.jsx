@@ -9,23 +9,23 @@ const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
 	const param = useParams();
 
+	const verifyEmailUrl = async () => {
+		try {
+			const url = `http://localhost:8000/api/users/${param.id}/verify/${param.token}`;
+			const { data } = await axios.get(url);
+			console.log(data);
+			setValidUrl(true);
+		} catch (error) {
+			console.log(error);
+			setValidUrl(false);
+		}
+	};
 	useEffect(() => {
-		const verifyEmailUrl = async () => {
-			try {
-				const url = `http://localhost:8080/api/users/${param.id}/verify/${param.token}`;
-				const { data } = await axios.get(url);
-				console.log(data);
-				setValidUrl(true);
-			} catch (error) {
-				console.log(error);
-				setValidUrl(false);
-			}
-		};
 		verifyEmailUrl();
 	}, [param]);
 
 	return (
-		<Fragment>
+		<div>
 			{validUrl ? (
 				<div className={styles.container}>
 					<img src={success} alt="success_img" className={styles.success_img} />
@@ -37,7 +37,7 @@ const EmailVerify = () => {
 			) : (
 				<h1>404 Not Found</h1>
 			)}
-		</Fragment>
+		</div>
 	);
 };
 
