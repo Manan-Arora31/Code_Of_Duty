@@ -11,7 +11,15 @@ const Login = () => {
     try {
       const response = await axios.post(' http://localhost:8000/api/admin/login', { email , password });
       console.log(response.data); // Handle successful login
-      navigate('/admin/dashboard'); // Redirect to the dashboard after successful login
+
+      // Storing the token in localStorage
+     
+       localStorage.setItem('token',response.data.token);
+
+    
+     // Redirect to the dashboard after successful login
+      navigate('/admin/dashboard');
+
     } catch (error) {
       console.error(error.response.data.message); // Handle login error
     }

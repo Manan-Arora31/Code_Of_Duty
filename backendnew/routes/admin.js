@@ -4,6 +4,7 @@ import Admin from '../models/admin.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
 
+import authMiddleware from '../middleware/authMiddleware.js';
 
 
 router.post('/register',async(req,res)=>{
@@ -56,5 +57,9 @@ router.post('/login',async(req,res)=>{
       }
   
 });
-
+router.get('/dashboard',authMiddleware,async(req,res)=>{
+    console.log("here at router");
+    res.json({adminData:req.user});
+  
+});
 export default router

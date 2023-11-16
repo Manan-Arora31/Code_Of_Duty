@@ -6,6 +6,10 @@ import Main from "./components/Main/index";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import EmailVerify from "./components/EmailVerify";
+import Adminlogin from './components/admin/Adminlogin';
+import Adminregister from './components/admin/Adminregister';
+import AdminDashboard from './components/admin/AdminDashboard';
+
 
 function App() {
   const user = localStorage.getItem("token");
@@ -13,8 +17,13 @@ function App() {
     <div>   
      <Router>
          <Routes>
-          
+
+           <Route path="/admin/register"  element={<Adminregister />} />
+           <Route path="/admin/login" element={<Adminlogin />} />
+           <Route path="/admin/dashboard" element={<AdminDashboard />} />
            <Route path="/admin/create-quiz" element={<AdminQuizCreation />} />
+
+
             <Route path="/quizzes" element={ <QuizList />} />
             {user && <Route path="/" exact element={<Main />} />}
 			      <Route path="/signup" exact element={<Signup />} />
