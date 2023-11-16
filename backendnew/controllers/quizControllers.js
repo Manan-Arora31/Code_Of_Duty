@@ -1,4 +1,20 @@
 import Quiz from '../Models/quiz.js';
+import shortid from 'shortid';
+const getOneQuiz=async(req,res)=>{
+  try {
+    const qid=req.params.quizId;
+    console.log(qid);
+    const quiz = await Quiz.findOne({ quizId: qid  });
+    if (!quiz) {
+      return res.status(404).json({ message: 'Quiz not found' });
+    }
+    res.json(quiz);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+
+};
 
 const getAllQuizzes=async(req,res)=>{
  try{
@@ -12,9 +28,12 @@ const getAllQuizzes=async(req,res)=>{
 
 const createQuiz=async(req,res)=>{
     const {title,category,questions}=req.body;
+    console.log('hello');
+    console.log(req.body);
 
     try{
-      const newQuiz=new Quiz({title,category,questions});
+      const quizId = shortid.generate();
+      const newQuiz=new Quiz({quizId,title,category,questions});
 
       const savedQuiz=await newQuiz.save();
 
@@ -28,4 +47,4 @@ const createQuiz=async(req,res)=>{
 
 }
 
-export { getAllQuizzes, createQuiz }
+export { getAllQuizzes, createQuiz,getOneQuiz }

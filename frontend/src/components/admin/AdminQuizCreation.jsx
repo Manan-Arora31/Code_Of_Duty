@@ -58,7 +58,7 @@ const AdminQuizCreation = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/quiz/createQuiz", quizDetails);
+      const response = await axios.post("http://localhost:8000/api/quiz/createQuiz", quizDetails);
       // handle success
       console.log(response.data);
       setQuizDetails({

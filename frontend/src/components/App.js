@@ -23,6 +23,7 @@ import Mainman from "./Main/index.jsx";
 import Signup from "./Signup";
 import Login from "./Login";
 import EmailVerify from "./EmailVerify";
+import QuizPage from './quiz/QuizPage.jsx';
 
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
@@ -69,6 +70,10 @@ const router=createBrowserRouter([
   {
     path:"/quizzes",
     element:<QuizList />
+  },
+  {
+    path:"/quiz/:quizId",
+    element:<QuizPage />
   },
   { path:"/home", 
     element:<Mainman />
