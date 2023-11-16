@@ -18,6 +18,7 @@ import AdminQuizCreation from './admin/AdminQuizCreation';
 import Adminlogin from './admin/Adminlogin';
 import Adminregister from './admin/Adminregister';
 import AdminDashboard from './admin/AdminDashboard';
+import AdminLogout  from './admin/AdminLogout.jsx';
 import QuizList from './quiz/QuizList.jsx';
 import Mainman from "./Main/index.jsx";
 import Signup from "./Signup";
@@ -58,6 +59,10 @@ const router=createBrowserRouter([
   {
     path:"/admin/login",
     element:<Adminlogin />
+  }, 
+  {
+    path:"/admin/logout",
+    element:<AdminLogout />
   },
   {
     path:"/admin/dashboard",

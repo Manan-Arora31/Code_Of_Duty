@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
+import { useNavigate } from 'react-router-dom';
 const AdminQuizCreation = () => {
+  const navigate=useNavigate();
   const [quizDetails, setQuizDetails] = useState({
     title: "",
     category: "",
     questions: [{ text: "", options: ["", "", ""], correctOption: "" }],
   });
    
+  useEffect(() => {
+    //  Retriving the token from locatl Storage
+ 
+    const token=localStorage.getItem('admintoken');
+    console.log(token);
+    if(!token)
+    {
+       navigate('/admin/login');
+    }
+  },[]);
+ 
+ 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setQuizDetails({ ...quizDetails, [name]: value });

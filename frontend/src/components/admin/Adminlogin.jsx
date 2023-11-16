@@ -14,7 +14,7 @@ const Login = () => {
 
       // Storing the token in localStorage
      
-       localStorage.setItem('token',response.data.token);
+       localStorage.setItem('admintoken',response.data.token);
 
     
      // Redirect to the dashboard after successful login
