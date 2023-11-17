@@ -73,7 +73,7 @@ router.get("/google", passport.authenticate("google", ["profile", "email"]));
 router.get(
 	"/google/callback",
 	passport.authenticate("google", {
-		successRedirect: "http://localhost:3000/home",
+		successRedirect: "/http://localhost:3000/home",
 		failureRedirect: "/login/failed",
 	})
 );

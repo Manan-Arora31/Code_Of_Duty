@@ -67,13 +67,13 @@ app.use(passport.session());
 
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "/http://localhost:3000",
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
 );
-// app.use(morgan('tiny'));
-// app.use(express.json());
+app.use(morgan('tiny'));
+app.use(express.json());
 
 
 app.use('/quiz',quizRoutes);
@@ -114,7 +114,7 @@ app.get('/message', (req, res) => {
 connect().then(() => {
     try {
         app.listen(port, () => {
-            console.log(`Server connected to http://localhost:${port}`)
+            console.log(`Server connected to /http://localhost:${port}`)
         })
     } catch (error) {
         console.log("Cannot connect to the server");

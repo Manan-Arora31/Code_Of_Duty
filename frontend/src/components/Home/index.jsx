@@ -10,7 +10,7 @@ function Home() {
 		try {
 			const url = 'http://localhost:8000/auth/login/success';
 			const { data } = await axios.get(url, { withCredentials: true });
-			console.log(data)
+			{console.log(data.user)}
 
 			setUser(data.user._json);
 		} catch (err) {
@@ -30,7 +30,6 @@ function Home() {
 	};
 
 	if(user){
-		user = user.user
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Home</h1>

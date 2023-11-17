@@ -1,9 +1,10 @@
-import { Fragment,React} from 'react';
 import '../styles/App.css';
+import { Fragment,useEffect,useState,React} from 'react';
 import {
   createBrowserRouter,Router,
   RouterProvider,Route,Routes,Navigate
 } from "react-router-dom";
+import axios from 'axios';
 
 /**import components */
 import Main from './Main';
@@ -72,7 +73,7 @@ const router=createBrowserRouter([
     element:<QuizList />
   },
   { path:"/home", 
-    element:<Mainman />
+    element:<Home />
   },
   {
     path:"/signup",
@@ -93,12 +94,41 @@ const router=createBrowserRouter([
 ])
 
 function App() {
+  const [user, setUser] = useState(null);
+
+	const getUser = async () => {
+		try {
+			const url = `http://localhost:8000/auth/login/success`;
+			const { data } = await axios.get(url, { withCredentials: true });
+			setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
   return (
-    
-  <Fragment>
-      <RouterProvider router={router}/>
-  </Fragment>
-  )
+    <Router>
+			<Routes>
+				<Route
+					exact
+					path="/home"
+					element={user ? <Home user={user} /> : <Navigate to="/login" />}
+				/>
+				<Route
+					exact
+					path="/login"
+					element={user ? <Navigate to="/home" /> : <Login />}
+				/>
+				<Route
+					path="/signup"
+					element={user ? <Navigate to="/home" /> : <Signup />}
+				/>
+			</Routes>
+    </Router>
+	);
 }
 
 export default App;
