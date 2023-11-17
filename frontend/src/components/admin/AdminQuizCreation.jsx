@@ -7,6 +7,8 @@ const AdminQuizCreation = () => {
   const [quizDetails, setQuizDetails] = useState({
     title: "",
     category: "",
+    windowStart:"",
+    windowEnd:"",
     questions: [{ text: "", options: ["", "", ""], correctOption: "" }],
   });
    
@@ -107,6 +109,22 @@ const AdminQuizCreation = () => {
           type="text"
           name="category"
           value={quizDetails.category}
+          onChange={(e) => handleInputChange(e)}
+        />
+        <br></br>
+        <label>windowStart Format- (MM DD, YYYY TIME)</label>
+        <input
+          type="text"
+          name="windowStart"
+          value={quizDetails.windowStart}
+          onChange={(e) => handleInputChange(e)}
+        />
+        <br></br>
+        <label>windowEnd Format- (MM DD, YYYY TIME) </label>
+        <input
+          type="text"
+          name="windowEnd"
+          value={quizDetails.windowEnd}
           onChange={(e) => handleInputChange(e)}
         />
         {quizDetails.questions.map((question, index) => (
