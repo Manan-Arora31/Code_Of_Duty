@@ -11,6 +11,8 @@ const quizSchema=new mongoose.Schema({
     title:String,
     category:String,
     questions:[questioSchema],
+    windowStart: Date,
+    windowEnd: Date,
 });
 
 export default mongoose.model('Quiz',quizSchema);

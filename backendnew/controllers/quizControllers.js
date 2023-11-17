@@ -8,7 +8,6 @@ const getOneQuiz=async(req,res)=>{
     if (!quiz) {
       return res.status(404).json({ message: 'Quiz not found' });
     }
-    res.json(quiz);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -23,7 +22,20 @@ const getidQuiz=async(req,res)=>{
     if (!quiz) {
       return res.status(404).json({ message: 'Quiz not found' });
     }
-    res.json(quiz);
+    console.log(quiz)
+    const windowStart = quiz.windowStart;
+    const windowEnd = quiz.windowEnd;
+    const now = new Date();
+    console.log("Today date" + now.toLocaleString());
+    console.log("windowStart" + windowStart.toLocaleString());
+    console.log("windowEnd" + windowEnd.toLocaleString());
+    
+    if(now >= windowStart && now <= windowEnd){
+      res.json(quiz);   
+    } 
+    else{
+      res.json(null);
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -52,13 +64,17 @@ const getAllQuizzes=async(req,res)=>{
 };
 
 const createQuiz=async(req,res)=>{
-    const {title,category,questions}=req.body;
+  const {title,category,questions,windowStart,windowEnd}=req.body;
+  // const windowStart = new Date('November 17, 2023 11:45:00')
+  // const windowEnd = new Date('November 17, 2023 12:45:00')
+  console.log('windowStart:', windowStart.toLocaleString());
+  console.log('windowEnd:', windowEnd.toLocaleString());
     console.log('hello');
     console.log(req.body);
 
     try{
       const quizId = shortid.generate();
-      const newQuiz=new Quiz({quizId,title,category,questions});
+      const newQuiz=new Quiz({quizId,title,category,questions,windowStart,windowEnd});
 
       const savedQuiz=await newQuiz.save();
 
