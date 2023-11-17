@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Questions from './Questions';
 import { useDispatch, useSelector } from 'react-redux';
 import {Navigate} from 'react-router-dom'
-import { useNavigate } from "react-router-dom"
+import { useNavigate,useParams } from "react-router-dom"
 
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestions';
 import { PushAnswer } from '../hooks/setResult';
@@ -24,6 +24,8 @@ function Quiz() {
 
   const [quizTime, setQuizTime] = useState(30); 
   const [questionTime, setQuestionTime] = useState(10);
+
+  const {id}=useParams();
 
   useEffect(() => {
     const quizTimerInterval = setInterval(() => {
@@ -96,7 +98,7 @@ if(result.length && result.length>=queue.length){
         <div style={styles} id="question-timer">Question Time: {Math.floor(questionTime / 60)}:{questionTime % 60}</div>
 
         {/* display questions */}
-        <Questions onChecked={onChecked}/>
+        <Questions onChecked={onChecked} quizId={id}/>
 
         <div className='grid'>
             {trace>0?<button className='btn prev' onClick={onPrev}>Prev</button>:<div></div>}

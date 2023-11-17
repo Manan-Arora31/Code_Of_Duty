@@ -11,7 +11,7 @@ import { updateResult } from '../hooks/setResult';
 // import { updateResult } from '../hooks/setResult'
 
 
-export default function Questions({ onChecked }) {
+export default function Questions({ onChecked,quizId }) {
 
     const [checked, setChecked] = useState(undefined);
 
@@ -19,7 +19,7 @@ export default function Questions({ onChecked }) {
 
     const { trace } = useSelector(state => state.questions);
     // const {questions : {queue,answers}, result:{result,userId}} = useSelector(state => state);console.log(state);
-    const [{ isLoading, apiData, serverError}] = useFetchQuestions() 
+    const [{ isLoading, apiData, serverError}] = useFetchQuestions(quizId) 
   
     const questions = useSelector(state => state.questions.queue[state.questions.trace])
     const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export default function Questions({ onChecked }) {
 
   return (
     <div className='questions'>
-        <h2 className='text-light'>{questions?.question}</h2>
+        <h2 className='text-light'>{questions?.text}</h2>
 
         <ul key={questions?.id}>
             {
