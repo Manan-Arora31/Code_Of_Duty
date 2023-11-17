@@ -15,6 +15,31 @@ const getOneQuiz=async(req,res)=>{
   }
 
 };
+const getidQuiz=async(req,res)=>{
+  try {
+    const qid=req.params.Id;
+    console.log(qid);
+    const quiz = await Quiz.findOne({ _id: qid  });
+    if (!quiz) {
+      return res.status(404).json({ message: 'Quiz not found' });
+    }
+    res.json(quiz);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+
+};
+const getreqQuizzes=async(req,res)=>{
+  const {category} = req.query;
+ try{
+    const quizzes=await Quiz.find({category:category});
+    res.json(quizzes);
+ }catch(err)
+ {
+    res.status(500).json({message:err.message});
+ }
+};
 
 const getAllQuizzes=async(req,res)=>{
  try{
@@ -47,4 +72,4 @@ const createQuiz=async(req,res)=>{
 
 }
 
-export { getAllQuizzes, createQuiz,getOneQuiz }
+export { getAllQuizzes, createQuiz,getOneQuiz,getreqQuizzes,getidQuiz }
