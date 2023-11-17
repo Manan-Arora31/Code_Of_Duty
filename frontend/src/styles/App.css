@@ -3,7 +3,7 @@
 :root{
   --primary-color: #0DFF92;
   --dark-color:hsl(0, 33%, 95%);
-  --light-color: #f0f0f0;
+  --light-color: black;
 }
 
 body, html{

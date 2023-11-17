@@ -6,6 +6,7 @@ import { useNavigate,useParams } from "react-router-dom"
 
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestions';
 import { PushAnswer } from '../hooks/setResult';
+import axios from 'axios';
 
 
 function Quiz() {
@@ -26,6 +27,15 @@ function Quiz() {
   const [questionTime, setQuestionTime] = useState(10);
 
   const {id}=useParams();
+
+  const getData = async () =>{
+    const response = await axios.get(`http://localhost:8000/api/quiz/one/${id}`);
+    if(response.data == null ){
+      alert("The quiz cannot be accessed within this window");
+      navigate("/");
+    } 
+  }
+  getData();
 
   useEffect(() => {
     const quizTimerInterval = setInterval(() => {
