@@ -33,7 +33,7 @@ const router=createBrowserRouter([
     element : <Main/>
   },
   {
-    path: '/quiz' ,
+    path: '/quiz/:id' ,
     element:<Quiz/>
   },
   {
