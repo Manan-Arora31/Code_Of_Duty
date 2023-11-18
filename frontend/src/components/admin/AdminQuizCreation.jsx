@@ -112,7 +112,7 @@ const AdminQuizCreation = () => {
           onChange={(e) => handleInputChange(e)}
         />
         <br></br>
-        <label>windowStart Format- (MM DD, YYYY TIME)</label>
+        <label>windowStart Format- (MM DD, YYYY HH:MM:SS)</label>
         <input
           type="text"
           name="windowStart"
@@ -120,7 +120,7 @@ const AdminQuizCreation = () => {
           onChange={(e) => handleInputChange(e)}
         />
         <br></br>
-        <label>windowEnd Format- (MM DD, YYYY TIME) </label>
+        <label>windowEnd Format- (MM DD, YYYY HH:MM:SS) </label>
         <input
           type="text"
           name="windowEnd"
