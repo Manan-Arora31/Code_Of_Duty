@@ -73,7 +73,7 @@ const router=createBrowserRouter([
     element:<AdminQuizCreation />
   },
   {
-    path:"/quizzes",
+    path:"/admin/quizzes",
     element:<QuizList />
   },
   {

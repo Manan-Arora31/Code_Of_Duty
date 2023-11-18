@@ -19,6 +19,15 @@ function AdminNavbar() {
             <Nav.Link as={Link} to="/admin/create-quiz">
               Create Quiz
             </Nav.Link>
+            
+            <NavDropdown title="Quizzes" id="quizzes-dropdown">
+              <Nav.Link as={Link} to="/admin/quizzes">
+                All Quizzes
+              </Nav.Link>
+              </NavDropdown>
+              
+              
+
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/admin/logout">
                 Logout

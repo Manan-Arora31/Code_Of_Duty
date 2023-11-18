@@ -4,7 +4,7 @@ const getOneQuiz=async(req,res)=>{
   try {
     const qid=req.params.quizId;
     console.log(qid);
-    const quiz = await Quiz.findOne({ quizId: qid  });
+    const quiz = await Quiz.findOne({ _id: qid  });
     if (!quiz) {
       return res.status(404).json({ message: 'Quiz not found' });
     }
