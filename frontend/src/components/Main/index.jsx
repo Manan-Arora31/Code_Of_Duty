@@ -9,29 +9,30 @@ const Main = () => {
 	useEffect(() => {
 		// Redirect to login page if the user is not logged in
 		if (!user) {
-		  navigate('/login');
+			alert("Please login first")
+			navigate('/login');
 		}
-	  }, [user, navigate]);
+	}, [user, navigate]);
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		navigate('/login');
 	};
 
-	if(user) {
+	if (user) {
 
-	return (
-		<div className={styles.main_container}>
-			<nav className={styles.navbar}>
-				<h1>quizmania</h1>
-				<button className={styles.white_btn} onClick={handleLogout}>
-					Logout
-				</button>
-			</nav>
-		</div>
-	);
+		return (
+			<div className={styles.main_container}>
+				<nav className={styles.navbar}>
+					<h1>quizmania</h1>
+					<button className={styles.white_btn} onClick={handleLogout}>
+						Logout
+					</button>
+				</nav>
+			</div>
+		);
 	}
-	else{
+	else {
 		return null
 	}
 };

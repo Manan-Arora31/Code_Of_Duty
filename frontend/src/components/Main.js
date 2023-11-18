@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import React, { useRef, useEffect } from 'react'
 import quiz from './Quiz';
 import MCQ from './MCQ';
 import TrueFalse from './TrueFalse';
@@ -10,6 +10,35 @@ import { useDispatch } from 'react-redux';
 
 function Main() {
 
+    const styles = {
+        border: 'none',
+        outline: 'none',
+        padding: '12px 0',
+        backgroundColor: 'white',
+        borderRadius: '20px',
+        width: '120px',
+        fontWeight: 'bold',
+        fontSize: '14px',
+        cursor: 'pointer',
+        marginRight: '20px',
+      };
+
+    const navigate = useNavigate();
+	const user = localStorage.getItem("token");
+
+    useEffect(() => {
+		// Redirect to login page if the user is not logged in
+		if (!user) {
+            alert("Please login first")
+		  navigate('/login');
+		}
+	  }, [user, navigate]);
+
+      const handleLogout = () => {
+		localStorage.removeItem("token");
+		navigate('/login');
+	};
+
     const inputRef = useRef(null);
     const dispatch=useDispatch();
     
@@ -19,9 +48,14 @@ function Main() {
         }
     }
 
+    if(user) {
+
   return (
     <div className='container'>
         <h1 className='title text-light'>Quiz Application</h1>
+        <button style={styles} onClick={handleLogout}>
+						Logout
+					</button>
 
         <div className='box'>
             <Link to={'MCQ'} >
@@ -52,6 +86,10 @@ function Main() {
 
     </div>
   )
+    }
+    else{
+        return null
+    }
 }
 
 export default Main
