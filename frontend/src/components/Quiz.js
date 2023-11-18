@@ -23,8 +23,8 @@ function Quiz() {
 
   const [check,setChecked] = useState(undefined);
 
-  const [quizTime, setQuizTime] = useState(30); 
-  const [questionTime, setQuestionTime] = useState(10);
+  const [quizTime, setQuizTime] = useState(30);  // SET QUIZ TIME HERE
+  const [questionTime, setQuestionTime] = useState(10);  //SET QUESTION TIME HERE
 
   const {id}=useParams();
 
@@ -75,7 +75,7 @@ function Quiz() {
 
 function onNext(){
   console.log('On next click');
-  setQuestionTime(10);
+  setQuestionTime(10);    //AGAIN RESET THE QUESTION TIME
   if(trace < queue.length){
     dispatch(MoveNextQuestion());
     if(result.length <= trace)
