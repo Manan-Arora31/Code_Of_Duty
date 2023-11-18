@@ -10,6 +10,7 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 
 import adminRoutes from "./routes/admin.js";
+import passwordResetRoutes from "./routes/passwordReset.js";
 //import authMiddleware from "./middleware/authMiddleware.js";
 
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 //app.use('/api/admin',authMiddleware);
 app.use('/api/admin',adminRoutes);
+app.use("/api/password-reset", passwordResetRoutes);
 
 const port = process.env.PORT;
 
