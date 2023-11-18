@@ -42,13 +42,13 @@ function Main() {
         </div>
 
         
-        <form id="form">
+        {/* <form id="form">
             <input ref={inputRef} className="userid" type="text" placeholder='Username*' />
         </form>
 
         <div className='start'>
             <Link className='btn' to={'quiz'} onClick={startQuiz}>Start Quiz</Link>
-        </div>
+        </div> */}
 
     </div>
   )

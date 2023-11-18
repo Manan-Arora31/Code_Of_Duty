@@ -24,10 +24,7 @@ export default function ResultTable() {
             </thead>
             <tbody>                  
                         <tr className='table-body' >
-                            <td>Pranil</td>
-                            <td>03</td>
-                            <td>30</td>
-                            <td>Passed</td>
+                            
                         </tr>
                 
             </tbody>
