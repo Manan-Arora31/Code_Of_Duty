@@ -25,6 +25,8 @@ import Signup from "./Signup";
 import Login from "./Login";
 import EmailVerify from "./EmailVerify";
 import QuizPage from './quiz/QuizPage.jsx';
+import ForgotPassword from "./ForgotPassword";
+import PasswordReset from "./PasswordReset";
 
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
@@ -98,6 +100,14 @@ const router=createBrowserRouter([
   {
    path:"/users/:id/verify/:token",
     element:<EmailVerify />
+  },
+  {
+    path:"/forgot-password",
+    element:<ForgotPassword />
+  },
+  {
+    path:"/password-reset/:id/:token",
+    element:<PasswordReset />
   }
 ])
 
