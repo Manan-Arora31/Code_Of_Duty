@@ -29,7 +29,27 @@ const QuizList=()=>{
     fetchQuizzes();
 
     },[]);
-
+    const copyQuizLink = (quizId) => {
+        const quizLink = `${window.location.origin}/quiz/${quizId}`;
+    
+        navigator.clipboard.writeText(quizLink).then(() => {
+          alert('Quiz link copied to clipboard!');
+        });
+      };
+    
+      const shareQuizLink = (quizId) => {
+        const quizLink = `${window.location.origin}/quiz/${quizId}`;
+    
+        if (navigator.share) {
+          navigator.share({
+            title: 'Quiz Link',
+            text: 'Check out this quiz!',
+            url: quizLink,
+          });
+        } else {
+          alert('Web Share API is not supported on this browser.');
+        }
+      };
     
     return(
 
@@ -42,7 +62,8 @@ const QuizList=()=>{
                 <li key={quiz._id}> 
                 {quiz.title}
                 <Link to={`/quiz/${quiz._id}`}>Take Quiz</Link>
-
+                <button onClick={() => copyQuizLink(quiz._id)}>Copy Link</button>
+            <button onClick={() => shareQuizLink(quiz._id)}>Share</button>
                 </li>
             ))}
            </ul>
