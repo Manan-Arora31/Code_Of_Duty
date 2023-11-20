@@ -2,7 +2,7 @@
 
 :root{
   --primary-color: #0DFF92;
-  --dark-color:hsl(236, 28%, 29%);
+  --dark-color: white;/*hsl(236, 28%, 29%);*/
   --light-color: black;
 }
 

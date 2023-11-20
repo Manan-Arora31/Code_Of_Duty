@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import Layout from './Layout';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/AdminQuizCreation.css';
 const AdminQuizCreation = () => {
   const navigate=useNavigate();
   const [quizDetails, setQuizDetails] = useState({
