@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
 import Layout from './Layout';
+import '../../styles/AdminDashboard.css'
 import { useNavigate } from 'react-router-dom';
 const AdminDashboard = () => {
   const [adminData, setAdminData] = useState(null);

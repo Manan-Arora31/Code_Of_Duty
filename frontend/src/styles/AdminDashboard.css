@@ -1,0 +1,49 @@
+/* Add custom styles for the AdminDashboard component */
+
+body {
+    background-color: #f8f9fa; /* Set a light background color for the entire page */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:  rgb(144, 201, 196);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #007bff;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Additional styling for the layout component */
+  
+  .layout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Additional styling for the navigation bar component */
+  
+  .admin-navbar {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Text color */
+  }
+  
+  .admin-navbar a {
+    color: #ffffff; /* Link text color */
+  }
+  
+  .admin-navbar a:hover {
+    color: #007bff; /* Link text color on hover */
+  }
+  

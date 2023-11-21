@@ -44,7 +44,7 @@ div {
   }
   
   button[type="button"] {
-    background-color: #dc3545; 
+    background-color:  hsl(354, 58%, 55%); 
   }
   
   button[type="button"]:hover {

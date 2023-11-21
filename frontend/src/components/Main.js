@@ -14,7 +14,7 @@ function Main() {
         border: 'none',
         outline: 'none',
         padding: '12px 0',
-        backgroundColor: 'white',
+        backgroundColor: 'light blue',
         borderRadius: '20px',
         width: '120px',
         fontWeight: 'bold',
@@ -53,7 +53,7 @@ function Main() {
   return (
     <div className='container'>
         <h1 className='title text-light'>Quiz Application</h1>
-        <button style={styles} onClick={handleLogout}>
+        <button  onClick={handleLogout}>
 						Logout
 					</button>
 
