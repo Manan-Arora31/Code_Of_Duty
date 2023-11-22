@@ -35,7 +35,7 @@ const router=createBrowserRouter([
     element : <Main/>
   },
   {
-    path: '/quiz/:id' ,
+    path: '/quiz/:id/:userId' ,
     element:<Quiz/>
   },
   {

@@ -4,11 +4,15 @@ export const resultReducer = createSlice({
     name:'result',
     initialState:{
         userId:null,
+        username:null,
         result:[],
     },
     reducers:{
         setUserId: (state,action)=>{
             state.userId=action.payload
+        },
+        setUsername: (state,action)=>{
+            state.username=action.payload
         },
         pushResultAction: (state,action)=> {
             state.result.push(action.payload);
@@ -26,6 +30,6 @@ export const resultReducer = createSlice({
     }
 })
 
-export const {setUserId,pushResultAction,resetResultAction,updateResultAction} = resultReducer.actions;
+export const {setUserId,setUsername,pushResultAction,resetResultAction,updateResultAction} = resultReducer.actions;
 
 export default resultReducer.reducer

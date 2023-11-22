@@ -5,9 +5,9 @@ import MCQ from './MCQ';
 import TrueFalse from './TrueFalse';
 import SingleWord from './SingleWord';
 import '../styles/Main.css'
-import { setUserId } from '../redux/result_reducer';
+import { setUserId,setUsername} from '../redux/result_reducer';
 import { useDispatch } from 'react-redux';
-
+import axios from 'axios';
 function Main() {
 
     const styles = {
@@ -24,15 +24,50 @@ function Main() {
       };
 
     const navigate = useNavigate();
-	const user = localStorage.getItem("token");
+	//const user = localStorage.getItem("token");
+    const tok= localStorage.getItem('token');
 
     useEffect(() => {
-		// Redirect to login page if the user is not logged in
-		if (!user) {
-            alert("Please login first")
-		  navigate('/login');
-		}
-	  }, [user, navigate]);
+        const fetchUserData = async () => {
+            try {
+              // Get the JWT token from wherever you stored it (e.g., localStorage)
+              const token = localStorage.getItem('token');
+      
+              if (!token) {
+                // Handle the case where the token is not available
+                console.error('Token not found');
+                navigate('/login');
+                return;
+              }
+      
+              // Send a request to the backend with the token in the Authorization header
+              const response = await axios('http://localhost:8000/api/users/profile', {
+                method: 'GET',
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              });
+      
+              if (response) {
+                // Parse and set the user information
+                const userId = response.data.id;
+                const fname=response.data.fname;
+                console.log(response.data);
+                console.log(userId);
+                dispatch(setUserId(userId));
+                dispatch(setUsername(fname));
+              } else {
+                // Handle errors from the backend
+                console.error('Error fetching user data:', response.status);
+              }
+            } catch (error) {
+              console.error('Error:', error);
+            }
+          };
+      
+          fetchUserData();
+        }, []);
 
       const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -48,7 +83,7 @@ function Main() {
         }
     }
 
-    if(user) {
+    if(tok) {
 
   return (
     <div className='container'>

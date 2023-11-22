@@ -1,8 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import {setUserId} from '../redux/result_reducer';
 
 function MCQ() {
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.result.userId);
+  console.log(userId);
   const [quizzes, setQuizzes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,7 +52,7 @@ function MCQ() {
         <h2>Topics</h2>
         <div className='topics'>
           {quizzes.map((data, i) => (
-            <Link to={`/quiz/${data._id}`} key={i}>
+            <Link to={`/quiz/${data._id}/${userId}`} key={i}>
               <div className="topic_of_quiz">
                 <h3>{data.title}</h3>
               </div>
