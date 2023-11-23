@@ -9,19 +9,43 @@ import { attempts_Number, earnPoints_Number, flagResult } from '../helper/helper
 /** import actions  */
 import { resetAllAction } from '../redux/questions_reducer';
 import { resetResultAction } from '../redux/result_reducer';
+
 // import { usePublishResult } from '../hooks/setResult';
 
 
 export default function Result() {
 
     const dispatch = useDispatch()
-    const { questions : { queue ,answers}, result : { result, username,userId}}  = useSelector(state => state)
+    const { questions : {quizId, queue ,answers}, result : { result, username,userId}}  = useSelector(state => state)
 
     const totalPoints = queue.length * 10; 
     const attempts = attempts_Number(result);
     const earnPoints = earnPoints_Number(result, answers, 10)
     const flag = flagResult(totalPoints, earnPoints)
+    console.log(answers);
+    console.log(result);
+    console.log(userId); 
+    console.log(quizId);   
+   
+    // Storing the result in backend;
 
+    const quizResultData={
+        quizId:quizId,
+        userId:userId,
+        selectedAnswer:result,
+        totalMarks:earnPoints
+    }
+
+    fetch('http://localhost:8000/api/quizResult/save', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(quizResultData),
+})
+    .then(response => response.json())
+    .then(data => console.log('Quiz result saved:', data))
+    .catch(error => console.error('Error saving quiz result:', error));
 
     /** store user result */
     // usePublishResult({ 
