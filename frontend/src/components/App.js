@@ -27,6 +27,7 @@ import EmailVerify from "./EmailVerify";
 import QuizPage from './quiz/QuizPage.jsx';
 import ForgotPassword from "./ForgotPassword";
 import PasswordReset from "./PasswordReset";
+import DetailReportPage from './DetailReport.js';
 
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
@@ -37,6 +38,10 @@ const router=createBrowserRouter([
   {
     path: '/quiz/:id/:userId' ,
     element:<Quiz/>
+  }, 
+  {
+    path: '/quiz/:id/:userId/result/detailReport' ,
+    element:<DetailReportPage/>
   },
   {
     path: '/result' ,

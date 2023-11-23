@@ -55,6 +55,10 @@ export default function Result() {
     //     points: earnPoints,
     //     achived : flag ? "Passed" : "Failed" });
 
+    function onDetailReport(){
+
+    }
+
     function onRestart(){
         dispatch(resetAllAction())
         dispatch(resetResultAction())
@@ -91,8 +95,11 @@ export default function Result() {
             </div>
         </div>
 
-        <div className="start">
+        {/* <div className="start">
             <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
+        </div> */}
+        <div className="start">
+            <Link className='btn' to={'/quiz/:id/:userId/result/detailReport'} onClick={onDetailReport}>DetailReport</Link>
         </div>
 
         <div className="container">
