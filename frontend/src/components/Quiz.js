@@ -3,10 +3,12 @@ import Questions from './Questions';
 import { useDispatch, useSelector } from 'react-redux';
 import {Navigate} from 'react-router-dom'
 import { useNavigate,useParams } from "react-router-dom"
+import ProgressBar from './ProgressBar';
 
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestions';
 import { PushAnswer } from '../hooks/setResult';
 import axios from 'axios';
+import '../styles/App.css'
 
 
 function Quiz() {
@@ -22,6 +24,7 @@ function Quiz() {
   }
 
   const [check,setChecked] = useState(undefined);
+  const [progressWidth, setProgressWidth] = useState(0); 
 
   const [quizTime, setQuizTime] = useState(30);  // SET QUIZ TIME HERE
   const [questionTime, setQuestionTime] = useState(10);  //SET QUESTION TIME HERE
@@ -70,8 +73,8 @@ function Quiz() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(result);
-  })
+    setProgressWidth(((trace+1) / queue.length) * 100);
+  }, [trace, queue.length]);
 
 function onNext(){
   console.log('On next click');
@@ -108,6 +111,8 @@ if(result.length && result.length>=queue.length){
         <div style={styles} id="question-timer">Question Time: {Math.floor(questionTime / 60)}:{questionTime % 60}</div>
 
         {/* display questions */}
+        <ProgressBar width={progressWidth} />
+        
         <Questions onChecked={onChecked} quizId={id}/>
 
         <div className='grid'>
