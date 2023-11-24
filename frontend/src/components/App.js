@@ -44,7 +44,7 @@ const router=createBrowserRouter([
     element:<DetailReportPage/>
   },
   {
-    path: '/result' ,
+    path: '/quiz/:id/:userId/result' ,
     element:<Result/>
   },
   {
