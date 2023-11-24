@@ -11,6 +11,7 @@ import userRoutes from "./routes/users.js";
 
 import adminRoutes from "./routes/admin.js";
 import passwordResetRoutes from "./routes/passwordReset.js";
+import resultRoute from './routes/quizResult.js';
 //import authMiddleware from "./middleware/authMiddleware.js";
 
 const app = express();
@@ -27,7 +28,7 @@ app.use("/api/auth", authRoutes);
 //app.use('/api/admin',authMiddleware);
 app.use('/api/admin',adminRoutes);
 app.use("/api/password-reset", passwordResetRoutes);
-
+app.use('/api/quizResult',resultRoute);
 const port = process.env.PORT;
 
 

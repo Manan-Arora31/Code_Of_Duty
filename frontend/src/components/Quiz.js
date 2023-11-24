@@ -30,6 +30,7 @@ function Quiz() {
   const [questionTime, setQuestionTime] = useState(10);  //SET QUESTION TIME HERE
 
   const {id}=useParams();
+  console.log(id);
 
   const getData = async () =>{
     const response = await axios.get(`http://localhost:8000/api/quiz/one/${id}`);
@@ -101,7 +102,7 @@ function onChecked(check){
 
 
 if(result.length && result.length>=queue.length){
-  return <Navigate to={'/result'} replace={true}></Navigate>
+  return <Navigate to={`/quiz/${id}/:userId/result`} replace={true}></Navigate>
 }
 
   return (

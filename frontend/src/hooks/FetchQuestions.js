@@ -33,7 +33,7 @@ export const useFetchQuestions = (quizId) => {
                     setGetData((prev) => ({ ...prev, apiData: { questions, answers } }));
 
                     // Dispatch the fetched questions and answers to the Redux store
-                    dispatch(Action.startExamAction({ questions, answers }));
+                    dispatch(Action.startExamAction({ quizId,questions, answers }));
                 } else {
                     throw new Error("No Question Available");
                 }

@@ -5,7 +5,7 @@ import Token from "../Models/token.js";
 import crypto from "crypto";
 import sendEmail from "../utils/sendEmail.js";
 import bcrypt from "bcrypt";
-
+import authMiddlewareUser from "../middleware/authMiddlewareUser.js";
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -60,5 +60,17 @@ router.get("/:id/verify/:token", async (req, res) => {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
 });
-
+router.get('/profile',authMiddlewareUser,(req,res)=>{
+	const user=req.user;
+	console.log(req.user);
+	//const fname=user.firstName;
+	//const lname=user.lastName;
+	//console.log(fname);
+	res.json({
+	  id:user._id,
+	  fname:user.firstName,
+	  lname:user.lastName,
+	  email:user.email
+	});
+  })
 export default router;
