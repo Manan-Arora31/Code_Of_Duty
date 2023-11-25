@@ -113,9 +113,9 @@ export default function Result() {
             </div>
         </div>
         <div className='start'>
-        <div className="restart">
+        {/* <div className="restart">
             <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
-        </div>
+        </div> */}
         <div className="restart">
             <Link className='btn' to={'/quiz/:id/:userId/result/detailReport'} onClick={onDetailReport}>DetailReport</Link>
         </div>

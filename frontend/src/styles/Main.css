@@ -66,6 +66,14 @@ body {
 .title {
   color: #0a0a0b;
   text-align: center;
+  justify-content: space-between;
+}
+
+.title > img{
+  height:80px;
+  width: 80px;
+  border-radius: 100px;
+  margin-left: 0px;
 }
 
 .box {

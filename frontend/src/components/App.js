@@ -28,6 +28,7 @@ import QuizPage from './quiz/QuizPage.jsx';
 import ForgotPassword from "./ForgotPassword";
 import PasswordReset from "./PasswordReset";
 import DetailReportPage from './DetailReport.js';
+import logo from '../images/logo.jpeg';
 
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
@@ -120,7 +121,10 @@ function App() {
   return (
     
   <Fragment>
+    <div className='base'>
+      <img className='logo' src={logo}/>
       <RouterProvider router={router}/>
+    </div>
   </Fragment>
   )
 }

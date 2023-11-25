@@ -10,10 +10,14 @@
     gap: 1em;
 }
 
+.outer{
+    margin-left: 15vw;
+}
+
 .container .flex{
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .container .flex span {
@@ -58,6 +62,7 @@ table {
 .download{
     margin-right: 38px;
     margin-top: 100px;
+    margin-left: 40px;
     height: 59px;
     width: 180px;
     border-radius: 10px;
