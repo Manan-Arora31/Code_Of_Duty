@@ -71,41 +71,42 @@ export default function Result() {
         <div className='result flex-center '>
             <div className='flex'>
                 <span>Username</span>
-                <span className='bold'>{username|| ""}</span>
+                <span className='details'>{username|| ""}</span>
             </div>
             <div className='flex'>
                 <span>Total Quiz Points : </span>
-                <span className='bold'>{totalPoints || 0}</span>
+                <span className='details'>{totalPoints || 0}</span>
             </div>
             <div className='flex'>
                 <span>Total Questions : </span>
-                <span className='bold'>{ queue.length || 0}</span>
+                <span className='details'>{ queue.length || 0}</span>
             </div>
             <div className='flex'>
                 <span>Total Attempts : </span>
-                <span className='bold'>{attempts || 0}</span>
+                <span className='details'>{attempts || 0}</span>
             </div>
             <div className='flex'>
                 <span>Total Earn Points : </span>
-                <span className='bold'>{earnPoints || 0}</span>
+                <span className='details'>{earnPoints || 0}</span>
             </div>
             <div className='flex'>
                 <span>Quiz Result</span>
                 <span style={{ color : `${flag ? "#2aff95" : "#ff2a66" }` }} className='bold'>{flag ? "Passed" : "Failed"}</span>
             </div>
         </div>
-
-        {/* <div className="start">
+        <div className='start'>
+        <div className="restart">
             <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
-        </div> */}
-        <div className="start">
+        </div>
+        <div className="restart">
             <Link className='btn' to={'/quiz/:id/:userId/result/detailReport'} onClick={onDetailReport}>DetailReport</Link>
         </div>
-
-        <div className="container">
-            {/* result table */}
-            <ResultTable></ResultTable>
         </div>
+
+        {/* <div className="container">
+           
+            <ResultTable></ResultTable>
+        </div> */}
     </div>
   )
 }

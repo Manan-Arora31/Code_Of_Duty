@@ -34,6 +34,7 @@ const Login = () => {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
+
 						<h1>Login to Your Account</h1>
 						<input
 							type="email"
@@ -55,6 +56,9 @@ const Login = () => {
 						/>
 						<Link to="/forgot-password" style={{ alignSelf: "flex-start" }}>
 							<p style={{ padding: "0 15px" }}>Forgot Password ?</p>
+						</Link>
+						<Link to="/admin/login" style={{ alignSelf: "flex-end" }}>
+							<p style={{ padding: "0 15px" }}>Want to login Admin ?</p>
 						</Link>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>

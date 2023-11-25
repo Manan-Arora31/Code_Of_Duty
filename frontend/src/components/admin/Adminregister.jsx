@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../../styles/Adminregister.css'
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,33 +27,36 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input
+    <div className='reg'>
+      <h2 className='head'>Register</h2>
+      <input className='inp'
         type="text"
         placeholder="Secretkey"
         value={Secretkey}
         onChange={(e) => setSecretkey(e.target.value)}
       />
       <input
+        className='inp'
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
        <input
+        className='inp'
         type="text"
         placeholder="email"
         value={email}
         onChange={(e) => setemail(e.target.value)}
       />
       <input
+        className='inp'
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleRegister}>Register</button>
+      <button className='but' onClick={handleRegister}>Register</button>
     </div>
   );
 };

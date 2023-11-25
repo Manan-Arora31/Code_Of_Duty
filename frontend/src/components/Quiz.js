@@ -9,11 +9,24 @@ import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestions';
 import { PushAnswer } from '../hooks/setResult';
 import axios from 'axios';
 import '../styles/App.css'
+import '../styles/Quiz.css'
 
 
 function Quiz() {
   const styles = {
-    color:"white"
+    color: "white",
+    border: "5px solid black", 
+    borderRadius: "50%", 
+    width: "150px", 
+    height: "150px",
+    textAlign: "center",
+    lineHeight: "150px", 
+    margin: "20px auto", 
+    fontSize:"48px",
+  };
+  const stylesQ ={
+    color: "white",
+    fontSize:"30px"
   }
 
   const navigate = useNavigate();
@@ -108,9 +121,10 @@ if(result.length && result.length>=queue.length){
   return (
     <div className='container'>
         <h1 className='title text-light'>Quiz Application</h1>
-        <div style={styles} id="quiz-timer">Total Time: {Math.floor(quizTime / 60)}:{quizTime % 60}</div>
-        <div style={styles} id="question-timer">Question Time: {Math.floor(questionTime / 60)}:{questionTime % 60}</div>
-
+        <div className='clocks'>
+        <div style={styles} id="quiz-timer">{Math.floor(quizTime / 60)}:{quizTime % 60}</div>
+        <div style={stylesQ} id="question-timer">Question Time: {Math.floor(questionTime / 60)}:{questionTime % 60}</div>
+        </div>
         {/* display questions */}
         <ProgressBar width={progressWidth} />
         

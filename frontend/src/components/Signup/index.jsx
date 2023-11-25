@@ -86,6 +86,9 @@ const Signup = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						{msg=="An Email sent to your account please verify" && <div className={styles.success_msg}>{msg}</div>}
+						<Link to="/admin/register" style={{ alignSelf: "flex-end" }}>
+							<p style={{ padding: "0 15px" }}>Admin Signup ?</p>
+						</Link>
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>

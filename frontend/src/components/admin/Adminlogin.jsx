@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState('');
@@ -26,21 +27,23 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='reg'>
+      <h2 className='head'>Login</h2>
       <input
+        className='inp'
         type="text"
         placeholder="email"
         value={email}
         onChange={(e) => setemail(e.target.value)}
       />
       <input
+        className='inp'
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+      <button className='but' onClick={handleLogin}>Login</button>
     </div>
   );
 };

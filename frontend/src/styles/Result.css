@@ -4,7 +4,8 @@
     display: flex;
     justify-content: center;    
     flex-direction: column;
-    border: 1px solid #cecece;
+    border: 1px solid white;
+    color: #eee;
     padding: 3em 4em;
     gap: 1em;
 }
@@ -17,7 +18,7 @@
 
 .container .flex span {
     font-size: 1.4em;
-    color: #cecece;
+    color: black;
 }
 
 .container .flex span.achive {
@@ -48,4 +49,31 @@ table {
 
 .table-header > tr > td{
     border: 1px solid #faff5a;   
+}
+
+.details{
+    font-weight: 800;
+    color: #eee;
+}
+
+.start{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.restart {
+    background-color: rgb(188, 224, 6);
+    color: white;
+    border: 5px #ff2a66;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.restart:hover{
+    background-color: rgb(251, 252, 250);
+    color: white;
+    border: 5px #ff2a66;
+    border-radius: 5px;
+    padding: 5px;
 }

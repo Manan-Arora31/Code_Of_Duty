@@ -1,0 +1,54 @@
+/* You can create a separate CSS file (e.g., Register.css) and import it into your component */
+
+/* Register.css */
+
+.reg {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+  } */
+  
+  .head{
+    color: #3498db ;
+
+  }
+  
+  .inp {
+    width: 60%;
+    font-size: 20px;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
+  .but {
+    width: 20%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .but:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Add more styles as needed */
+  
