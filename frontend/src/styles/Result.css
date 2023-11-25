@@ -51,29 +51,14 @@ table {
     border: 1px solid #faff5a;   
 }
 
-.details{
-    font-weight: 800;
-    color: #eee;
-}
-
-.start{
+.outer{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
 }
 
-.restart {
-    background-color: rgb(188, 224, 6);
-    color: white;
-    border: 5px #ff2a66;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.restart:hover{
-    background-color: rgb(251, 252, 250);
-    color: white;
-    border: 5px #ff2a66;
-    border-radius: 5px;
-    padding: 5px;
+.download{
+    margin-right: 38px;
+    margin-top: 100px;
+    height: 59px;
+    width: 180px;
+    border-radius: 10px;
 }
