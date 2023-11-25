@@ -8,6 +8,8 @@ import '../styles/Main.css'
 import { setUserId,setUsername} from '../redux/result_reducer';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import logo from '../images/logo.jpeg';
+
 function Main() {
 
     const styles = {
@@ -89,7 +91,7 @@ function Main() {
 
   return (
     <div className='container'>
-        <h1 className='title text-light'>Quiz Application</h1>
+        <h1 className='title text-light'> Quiz Application</h1>
         <button  onClick={handleLogout}>
 						Logout
 					</button>
@@ -113,6 +115,7 @@ function Main() {
         </div>
 
     </div>
+    
   )
     }
     else{
