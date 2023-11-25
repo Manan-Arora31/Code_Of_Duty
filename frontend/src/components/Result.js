@@ -11,9 +11,26 @@ import { resetAllAction } from '../redux/questions_reducer';
 import { resetResultAction } from '../redux/result_reducer';
 
 // import { usePublishResult } from '../hooks/setResult';
+import html2canvas from "html2canvas"
+import jsPDF from "jspdf"
 
 
 export default function Result() {
+
+    const downloadPdf = () => {
+        const content = document.getElementById('pdf-content'); // Replace with the ID of the element you want to convert to PDF
+    
+        html2canvas(content).then(canvas => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF();
+          const imgProps = pdf.getImageProperties(imgData);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('download.pdf');
+        });
+      };
 
     const dispatch = useDispatch()
     const { questions : {quizId, queue ,answers}, result : { result, username,userId}}  = useSelector(state => state)
@@ -65,7 +82,8 @@ export default function Result() {
     }
 
   return (
-    <div className='container'>
+    <div className = "outer">
+    <div id='pdf-content' className='container'>
         <h1 className='title text-light'>Quiz Application</h1>
 
         <div className='result flex-center '>
@@ -107,6 +125,8 @@ export default function Result() {
            
             <ResultTable></ResultTable>
         </div> */}
+    </div>
+    <button className="download" onClick = {downloadPdf}>Download PDF</button>
     </div>
   )
 }
