@@ -27,7 +27,8 @@ import EmailVerify from "./EmailVerify";
 import QuizPage from './quiz/QuizPage.jsx';
 import ForgotPassword from "./ForgotPassword";
 import PasswordReset from "./PasswordReset";
-
+import ProctorPage from "./ProctorPage"
+import DisplayPhotos from "./DisplayPhotos"
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
   {
@@ -108,7 +109,16 @@ const router=createBrowserRouter([
   {
     path:"/password-reset/:id/:token",
     element:<PasswordReset />
+  },
+  {
+    path:"/proctor",
+    element:<ProctorPage />
+  },
+  {
+    path:"/displayPhotos",
+    element:<DisplayPhotos />
   }
+
 ])
 
 function App() {

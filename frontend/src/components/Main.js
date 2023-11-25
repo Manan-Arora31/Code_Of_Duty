@@ -25,6 +25,7 @@ function Main() {
 
     const navigate = useNavigate();
 	const user = localStorage.getItem("token");
+    console.log(user)
 
     useEffect(() => {
 		// Redirect to login page if the user is not logged in
