@@ -17,16 +17,18 @@ function Quiz() {
     color: "white",
     border: "5px solid black", 
     borderRadius: "50%", 
-    width: "150px", 
-    height: "150px",
+    width: "100px", 
+    height: "100px",
     textAlign: "center",
-    lineHeight: "150px", 
+    lineHeight: "100px",
+    marginLeft:"0px",
     margin: "20px auto", 
-    fontSize:"48px",
+    fontSize:"35px",
   };
   const stylesQ ={
     color: "white",
-    fontSize:"30px"
+    fontSize:"30px",
+    
   }
 
   const navigate = useNavigate();

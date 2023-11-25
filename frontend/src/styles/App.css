@@ -194,3 +194,37 @@ input[type=radio]:checked ~ .text-primary{
   background: var(--primary-color)
 }
 
+
+/* Default styles for larger screens */
+.container {
+  width: 800px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .container .title {
+    font-size: 2em;
+  }
+
+  .container2 {
+    padding: 1em;
+  }
+
+  .container .questions {
+    padding: 1em;
+  }
+
+  .container .grid {
+    grid-template-columns: 1fr;
+  }
+
+  ul li label {
+    font-size: 1.2em;
+    padding: 15px 15px 15px 50px;
+  }
+}

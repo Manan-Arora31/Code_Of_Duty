@@ -100,14 +100,14 @@ function Main() {
             </Link>
             <Link to={'TrueFalse'} >
             <div class="card">
-            <img src="https://mcqquestions.net/static/images/q-%26-a.webp" alt="Avatar" style={{width:'100%'}}/>
+            <img src="https://img.freepik.com/premium-vector/true-false-label-sign-check-mark-cross_123447-5530.jpg" alt="Avatar" style={{width:'100%'}}/>
             </div>
             </Link>
-            <Link to={'SingleWord'} >
+            {/* <Link to={'SingleWord'} >
             <div class="card">
             <img src="https://mcqquestions.net/static/images/q-%26-a.webp" alt="Avatar" style={{width:'100%'}}/>
             </div>
-            </Link>
+            </Link> */}
         </div>
 
     </div>
