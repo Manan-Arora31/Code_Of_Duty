@@ -6,6 +6,7 @@ import crypto from "crypto";
 import sendEmail from "../utils/sendEmail.js";
 import bcrypt from "bcrypt";
 import Joi from "joi" ;
+import jwt from "jsonwebtoken"
 
 router.post("/", async (req, res) => {
 	try {

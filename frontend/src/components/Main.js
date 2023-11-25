@@ -26,6 +26,8 @@ function Main() {
     const navigate = useNavigate();
 	//const user = localStorage.getItem("token");
     const tok= localStorage.getItem('token');
+	const user = localStorage.getItem("token");
+    console.log(user)
 
     useEffect(() => {
         const fetchUserData = async () => {
