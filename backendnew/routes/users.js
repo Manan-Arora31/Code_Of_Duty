@@ -1,6 +1,6 @@
 import express from "express"
 const router = express.Router();
-import { User, validate } from "../Models/user.js";
+import { User, validate } from "../models/user.js";
 import Token from "../Models/token.js";
 import crypto from "crypto";
 import sendEmail from "../utils/sendEmail.js";

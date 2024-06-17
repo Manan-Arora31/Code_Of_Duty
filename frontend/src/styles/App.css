@@ -205,9 +205,15 @@ input[type=radio]:checked ~ .text-primary{
 }
 
 
+
 /* Default styles for larger screens */
 .container {
   width: 800px;
+}
+
+.topic_of_quiz{
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Responsive styles for smaller screens */

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import '../styles/Result.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import ResultTable from './ResultTable';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,17 +32,18 @@ export default function Result() {
         });
       };
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { questions : {quizId, queue ,answers}, result : { result, username,userId}}  = useSelector(state => state)
 
     const totalPoints = queue.length * 10; 
     const attempts = attempts_Number(result);
     const earnPoints = earnPoints_Number(result, answers, 10)
     const flag = flagResult(totalPoints, earnPoints)
-    console.log(answers);
-    console.log(result);
-    console.log(userId); 
-    console.log(quizId);   
+    // console.log(answers);
+    // console.log(result);
+    // console.log(userId); 
+    // console.log(quizId);   
    
     // Storing the result in backend;
 
@@ -52,6 +53,10 @@ export default function Result() {
         selectedAnswer:result,
         totalMarks:earnPoints
     }
+
+    const handleBack = () => {
+        navigate("/");
+      }
 
     fetch('http://localhost:8000/api/quizResult/save', {
     method: 'POST',
@@ -84,6 +89,7 @@ export default function Result() {
   return (
     <div className = "outer">
     <div id='pdf-content' className='container'>
+    <button onClick={handleBack}>back</button>
         <h1 className='title text-light'>Quiz Application</h1>
 
         <div className='result flex-center '>

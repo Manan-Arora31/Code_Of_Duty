@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 
 export default async (email, subject, text) => {
 	try {
+		console.log("yes")
 		const transporter = nodemailer.createTransport({
 			host: process.env.HOST,
 			service: process.env.SERVICE,
@@ -12,7 +13,11 @@ export default async (email, subject, text) => {
 				pass: process.env.PASS,
 			},
 		});
-
+		transporter.verify((err, success) => {
+			if (err) console.error(err);
+			console.log('Your config is correct');
+		});
+        console.log("yes")
 		await transporter.sendMail({
 			from: process.env.USER,
 			to: email,

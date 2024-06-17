@@ -22,7 +22,7 @@ const Register = () => {
       console.error(error.response.data.message); // Handle registration error
     }
     }else{
-      console.log("Wrong SecretKey");
+      alert("Wrong SecretKey");
     } 
   };
 

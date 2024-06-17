@@ -8,6 +8,7 @@ import bcrypt from "bcrypt";
 import Joi from "joi" ;
 import jwt from "jsonwebtoken"
 
+
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -28,12 +29,17 @@ router.post("/", async (req, res) => {
 		if (!user.verified) {
 			let token = await Token.findOne({ userId: user._id });
 			if (!token) {
+				console.log("yes")
 				token = await new Token({
 					userId: user._id,
 					token: crypto.randomBytes(32).toString("hex"),
 				}).save();
 				const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`;
 				await sendEmail(user.email, "Verify Email", url);
+			} else{
+				console.log("made already");
+				console.log(token);
+				//res.status(200).send({ data: token, message: "logged in successfully" });
 			}
 
 			return res

@@ -32,6 +32,7 @@ import logo from '../images/logo.jpeg';
 
 import ProctorPage from "./ProctorPage"
 import DisplayPhotos from "./DisplayPhotos"
+import Leaderboard from './LeaderBoard.js';
 const user = localStorage.getItem("token");
 const router=createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router=createBrowserRouter([
   {
     path: '/MCQ' ,
     element:<MCQ/>
+  },
+  {
+    path: 'quiz/:id/:userId/leaderboard' ,
+    element:<Leaderboard/>
   },
   {
     path: '/TrueFalse' ,
