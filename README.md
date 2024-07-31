@@ -39,7 +39,13 @@ This quiz website is designed to facilitate the creation and management of MCQ q
  <br>LeaderBoard:</br>
  ![Screenshot 2024-07-31 224722](https://github.com/user-attachments/assets/e313d3d8-d4ae-4a3f-830c-fd9e1de2508a)
 
+ <br>Result:</br>
+![Screenshot 2024-07-31 225717](https://github.com/user-attachments/assets/283580a5-4ab5-4fa0-9aa4-d5c7e46a1e0b)
+<br>Detail Report:</br>
 
+![Screenshot 2024-07-31 230017](https://github.com/user-attachments/assets/5ae2c909-1213-4c4f-b066-427388c1ed76)
+
+ 
 
 
 
