@@ -30,6 +30,15 @@ This quiz website is designed to facilitate the creation and management of MCQ q
   ![Screenshot 2024-07-04 152641](https://github.com/Manan-Arora31/Code_Of_Duty/assets/97394042/bdb50fb5-97c5-4b13-acc8-101e5a672cd8)
   ![Screenshot 2024-07-04 152738](https://github.com/Manan-Arora31/Code_Of_Duty/assets/97394042/edc3b5c8-6bfa-4d32-a2a7-4f727b60d6bd)
   ![Screenshot 2024-07-04 152749](https://github.com/Manan-Arora31/Code_Of_Duty/assets/97394042/ae17121e-5a5e-4e57-adcd-f6ce31abd54f)
+  <br>User Dashboard:</br>
+  
+![Screenshot 2024-07-31 224611](https://github.com/user-attachments/assets/2b4bf586-3926-4999-84bc-037affbe820f)
+ <br>MCQ Quizzes:</br>
+ 
+![Screenshot 2024-07-31 224632](https://github.com/user-attachments/assets/69baa49d-5c5d-4fd7-9a47-46bf93e9d37c)
+ <br>LeaderBoard:</br>
+ ![Screenshot 2024-07-31 224722](https://github.com/user-attachments/assets/e313d3d8-d4ae-4a3f-830c-fd9e1de2508a)
+
 
 
 
